@@ -1,13 +1,13 @@
 function Login() {
     return (
         <div>
-            <h1 style={{color: '#c00'}}>Login</h1>
+            <h1 style={{color: '#000'}} id="title">Login</h1>
                 <p>
-                    <label htmlFor="username">Username:</label>
+                    <label htmlFor="username">Username: </label>
                     <input type="text" id="username" name="username" />
                 </p>
                 <p>
-                    <label htmlFor="password">Password:</label>
+                    <label htmlFor="password">Password: </label>
                     <input type="password" id="password" name="password" />
                 </p>
                 <p>

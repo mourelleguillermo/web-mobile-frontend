@@ -1,49 +1,58 @@
-  .App {
-    text-align: center;
-    background-color: #555;
-  }
+html {
+  background-color: #555;
+}
 
-  .App-body {
-    background-color: #555;
-    min-height: 80vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
-  }
+.App {
+  text-align: center;
+  background-color: #555;
+}
 
-  .App-logo {
-    height: 40vmin;
-    pointer-events: none;
-  }
+.App-body {
+  background-color: #555;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
 
-  .App-header {
-    background-color: #555;
-    color: white;
-    display: flex;
-    align-items: start;
-    padding: 10px 10px;
-    font-size: larger;
-    font-weight: bold;
-  }
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
 
-  .App-link {
-    color: #61dafb;
-  }
+.App-header {
+  background-color: #555;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  font-size: larger;
+  font-weight: bold;
+}
 
-  #buttons {
-    display: flex;
-    padding-top: 15px;
-    gap: 10px;
-  }
+.App-link {
+  color: #61dafb;
+}
 
-  .modal {
-    background-color: #f00;
-    padding: 20px;
-  }
+#buttons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
 
-  .popup-overlay {
-    background: rgba(0, 0, 0, 0.5);
-  }
+.modal {
+  background-color: #aaa;
+  padding: 20px;
+}
+
+.popup-overlay {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+#title {
+  text-align: center;
+}

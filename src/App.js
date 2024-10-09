@@ -3,25 +3,22 @@ import Login from './components/login';
 import SignUp from './components/signup';
 import Popup from 'reactjs-popup';
 
+
 function App() {
 	return (
     	<div className="App">
     		<header className="App-header">
         	UCUddit
-			</header>
-        	<body className='App-body'>
-				<div id="buttons">
+			<div id="buttons">
 					<Popup trigger={<button>Login</button>} modal nested>
             		    {
 							close => (
             		            <div className='modal'>
             		                <div>
-            		                    <button onClick={() => close()}>
-            		                            X
-            		                    </button>
-            		                </div>
-									<div className='content'>
-					                    <Login />
+            		                    <button onClick={() => close()}>X</button>
+										<div className='content'>
+					                    	<Login />
+            		                	</div>
             		                </div>
             		            </div>
             		        )
@@ -32,19 +29,19 @@ function App() {
 							close => (
 								<div className='modal'>
             		                <div>
-            		                    <button onClick={() => close()}>
-            		                            X
-            		                    </button>
-            		                </div>
-									<div className='content'>
-            		                    <SignUp />
+            		                    <button onClick={() => close()}>X</button>
+										<div className='content'>
+            		                    	<SignUp />
+            		                	</div>
             		                </div>
             		            </div>
             		        )
             		    }
             		</Popup>
-					
         		</div>
+			</header>
+        	<body className='App-body'>
+				ewewweweewwewew
 			</body>
 	</div>
   );

@@ -1,14 +1,8 @@
 html {
-  background-color: #555;
-}
-
-.App {
-  text-align: center;
-  background-color: #555;
+  background-color: #9796BD;
 }
 
 .App-body {
-  background-color: #555;
   min-height: 80vh;
   display: flex;
   flex-direction: column;
@@ -24,7 +18,7 @@ html {
 }
 
 .App-header {
-  background-color: #555;
+  background-color: #696890;
   color: white;
   display: flex;
   align-items: center;
@@ -32,18 +26,38 @@ html {
   padding: 20px;
   font-size: larger;
   font-weight: bold;
+  max-height: 40px;
 }
 
 .App-link {
   color: #61dafb;
 }
 
-#buttons {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+#loginbutton, #signupbutton {
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 50px;
 }
 
+#loginbutton {
+  background-color: #A5A4E8;
+} 
+
+#signupbutton {
+  background-color: #444383;
+}
+
+#buttons {
+  display: flex;
+  gap: 15px;
+}
 .modal {
   background-color: #aaa;
   padding: 20px;
@@ -51,8 +65,4 @@ html {
 
 .popup-overlay {
   background: rgba(0, 0, 0, 0.5);
-}
-
-#title {
-  text-align: center;
 }

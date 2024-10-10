@@ -11,7 +11,9 @@ function Login() {
                     <input type="password" id="password" name="password" />
                 </p>
                 <p>
-                    <button type="submit">Login</button>
+                    <button type="submit" onClick={() => {
+                        console.log(document.getElementById('username').value, document.getElementById('password').value)
+                    }}>Login</button>
                 </p>
             </div>
     )

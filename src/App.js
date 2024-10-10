@@ -10,7 +10,7 @@ function App() {
     		<header className="App-header">
         	UCUddit
 			<div id="buttons">
-					<Popup trigger={<button>Login</button>} modal nested>
+					<Popup trigger={<button id='loginbutton'>Login</button>} modal nested>
             		    {
 							close => (
             		            <div className='modal'>
@@ -24,7 +24,7 @@ function App() {
             		        )
             		    }
             		</Popup>
-        			<Popup trigger={<button>Sign Up</button>} modal nested>
+        			<Popup trigger={<button id='signupbutton'>Sign Up</button>} modal nested>
             		    {
 							close => (
 								<div className='modal'>

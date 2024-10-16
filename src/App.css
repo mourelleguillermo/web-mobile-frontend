@@ -58,9 +58,12 @@ html {
   display: flex;
   gap: 15px;
 }
+
+
 .modal {
-  background-color: #aaa;
+  background-color: #aeaeae;
   padding: 20px;
+  border-radius: 10px;
 }
 
 .popup-overlay {

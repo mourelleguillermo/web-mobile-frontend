@@ -1,22 +1,10 @@
-function Login() {
-    return (
-        <div>
-            <h1 style={{color: '#000'}} id="title">Login</h1>
-                <p>
-                    <label htmlFor="username">Username: </label>
-                    <input type="text" id="username" name="username" />
-                </p>
-                <p>
-                    <label htmlFor="password">Password: </label>
-                    <input type="password" id="password" name="password" />
-                </p>
-                <p>
-                    <button type="submit" onClick={() => {
-                        console.log(document.getElementById('username').value, document.getElementById('password').value)
-                    }}>Login</button>
-                </p>
-            </div>
-    )
+import React from "react";
+import { useAuth0 } from "@auth0/auth0-react";
+
+const LoginButton = () => {
+  const { loginWithRedirect } = useAuth0();
+
+  return <button onClick={() => loginWithRedirect()}>Log In</button>;
 };
 
-export default Login;
+export default LoginButton;

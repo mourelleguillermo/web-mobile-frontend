@@ -58,11 +58,13 @@ html {
   display: flex;
   gap: 15px;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of 28dc5f7 (added auth0)
 .modal {
-  background-color: #aeaeae;
+  background-color: #aaa;
   padding: 20px;
-  border-radius: 10px;
 }
 
 .popup-overlay {

@@ -10,6 +10,7 @@ html {
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  font-family: 'JetBrains Mono';
 }
 
 .App-logo {
@@ -27,13 +28,14 @@ html {
   font-size: larger;
   font-weight: bold;
   max-height: 40px;
+  font-family: 'JetBrains Mono';
 }
 
 .App-link {
   color: #61dafb;
 }
 
-#loginbutton, #signupbutton {
+#loginbutton, #logoutbutton {
   border: none;
   color: white;
   padding: 15px 32px;
@@ -44,29 +46,101 @@ html {
   margin: 4px 2px;
   cursor: pointer;
   border-radius: 50px;
+  font-family: 'JetBrains Mono';
 }
 
 #loginbutton {
   background-color: #A5A4E8;
 } 
 
-#signupbutton {
+#logoutbutton {
   background-color: #444383;
 }
 
-#buttons {
+.buttons {
   display: flex;
   gap: 15px;
 }
-<<<<<<< HEAD
 
-=======
->>>>>>> parent of 28dc5f7 (added auth0)
 .modal {
-  background-color: #aaa;
+  background-color: #444383;
   padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal > * {
+  margin-bottom: 5px;
 }
 
 .popup-overlay {
   background: rgba(0, 0, 0, 0.5);
+}
+
+#content {
+  width: 500px;
+  height: 250px;
+  resize: none;
+}
+
+#title {
+  width: 250px;
+  height: 20px;
+  resize: none;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.posts {
+  display: flex;
+  flex-direction: column;
+  padding: 0px 15%;
+  gap: 20px;
+}
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 30px;
+}
+
+.post-style {
+  background-color: #9f9f9f;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.post-style > * {
+  margin-bottom: 5px;
+}
+
+#likebutton {
+  display: flex;
+  background-color: #444383;
+  color: white;
+  border: none;
+  text-align: left;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  cursor: pointer;
+  width: fit-content;
+}
+
+#likebutton:disabled {
+  background-color: #bbb0;
+  cursor: not-allowed;
 }

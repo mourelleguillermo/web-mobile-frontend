@@ -5,15 +5,15 @@ import ProfilePicture from '../components/pfp';
 import PostButton from '../components/postbutton';
 import { useAuth0 } from '@auth0/auth0-react';
 import { IoIosHeart } from "react-icons/io";
+import Popup from "reactjs-popup";
 
 export default function Home() {
-    const { user, isAuthenticated } = useAuth0();
-
+    const { isAuthenticated } = useAuth0();
 	const [posts, setPosts] = useState([
 		{
 			id: 1,
 			user: "admin",
-			title: "test",
+			title: "My first post on this platform!",
 			content: "Test post 1",
 			likes: 0,
 			liked: false
@@ -21,7 +21,7 @@ export default function Home() {
 		{
 			id: 2,
 			user: "admin",
-			title: "test",
+			title: "My second post on this platform!",
 			content: "Test post 2",
 			likes: 5,
 			liked: false
@@ -29,8 +29,8 @@ export default function Home() {
 		{
 			id: 3,
 			user: "admin",
-			title: "test",
-			content: "Test post 3",
+			title: "Test post 3",
+			content: "Occaecat cillum pariatur esse nisi irure dolor do voluptate do tempor. Laborum deserunt elit tempor dolor sunt. Sunt proident labore mollit labore sint id eu labore officia cillum deserunt aute ea.",
 			likes: 2147483647,
 			liked: false
 		}
@@ -67,14 +67,19 @@ export default function Home() {
 			</body>
 			<div className="posts">
 				{posts.map(post => (
-					<div key={post.id} className="post post-style">
-						<h1>{post.title}</h1>
-						<h3>by {post.user}</h3>
-						<p>{post.content}</p>
-						<button onClick={() => handleLike(post.id)} disabled={!isAuthenticated} id="likebutton">
-							<IoIosHeart color={post.liked ? "red" : "white"} size={30}/> {post.likes}
-						</button>
-					</div>
+					<Popup trigger={<button className="open-post">{post.title} - {post.id}</button>} modal nested>
+						{close => (
+							<div className="post post-style">
+								<h2>{post.title}</h2>
+								<h5>{post.user}</h5>
+								<p>{post.content}</p>
+								<button onClick={() => handleLike(post.id)} disabled={!isAuthenticated} id="likebutton">
+									<IoIosHeart color={post.liked ? "red" : "white"} size={30} />{post.likes}
+								</button>
+								<button onClick={close}>Close</button>
+							</div>
+						)}
+					</Popup>
 				))}
 			</div>
 	</div>

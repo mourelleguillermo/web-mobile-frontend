@@ -22,7 +22,11 @@ function PostButton({ addPost }) {
             console.log("Post: " + document.getElementById('content').value);
             console.log("User: " + user.user.name);
             addPost(newPost);
-        } 
+        };
+
+        document.getElementById('title').value = '';
+        document.getElementById('content').value = '';
+        document.getElementById('charCount').textContent = '0/240';
     };
 
     return (

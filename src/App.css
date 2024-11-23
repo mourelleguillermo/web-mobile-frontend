@@ -63,7 +63,7 @@ html {
 }
 
 .modal {
-  background-color: #444383;
+  background-color: #A5A4E8;
   padding: 20px;
   border-radius: 10px;
   display: flex;
@@ -143,4 +143,14 @@ html {
 #likebutton:disabled {
   background-color: #bbb0;
   cursor: not-allowed;
+}
+
+.open-post {
+  background-color: #9f9f9f;
+  color: white;
+  padding: 15px 25px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  margin: 5px;
 }

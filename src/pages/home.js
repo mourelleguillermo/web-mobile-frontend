@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import LoginButton from "../components/login";
 import LogoutButton from '../components/logout';
 import ProfilePicture from '../components/pfp';
@@ -6,35 +6,26 @@ import PostButton from '../components/postbutton';
 import { useAuth0 } from '@auth0/auth0-react';
 import { IoIosHeart } from "react-icons/io";
 import Popup from "reactjs-popup";
+import axios from "axios";
 
 export default function Home() {
     const { isAuthenticated } = useAuth0();
-	const [posts, setPosts] = useState([
-		{
-			id: 1,
-			user: "admin",
-			title: "My first post on this platform!",
-			content: "Test post 1",
-			likes: 0,
-			liked: false
-		},
-		{
-			id: 2,
-			user: "admin",
-			title: "My second post on this platform!",
-			content: "Test post 2",
-			likes: 5,
-			liked: false
-		},
-		{
-			id: 3,
-			user: "admin",
-			title: "Test post 3",
-			content: "Occaecat cillum pariatur esse nisi irure dolor do voluptate do tempor. Laborum deserunt elit tempor dolor sunt. Sunt proident labore mollit labore sint id eu labore officia cillum deserunt aute ea.",
-			likes: 2147483647,
-			liked: false
+	const [posts, setPosts] = useState([]);
+
+	useEffect(() => {
+		const fetchPosts = async () => {
+		  try {
+			const response = await axios.get('http://localhost:8080/api/posts');
+			setPosts(response.data);
+		  } catch (error) {
+			console.error('Error fetching posts:', error);
+		  }
+		};
+	
+		if (isAuthenticated) {
+		  fetchPosts();
 		}
-	]);
+	  }, [isAuthenticated]);
 
 	const addPost = (newPost) => {
 		setPosts([newPost, ...posts]);
@@ -63,7 +54,7 @@ export default function Home() {
         		</div>
 			</header>
         	<body className='App-body'>
-				{isAuthenticated ? <PostButton addPost={addPost} /> : <p>You are not logged in</p>}
+				{isAuthenticated ? <PostButton addPost={addPost} /> : <p>Log in to see and create posts!</p>}
 			</body>
 			<div className="posts">
 				{posts.map(post => (

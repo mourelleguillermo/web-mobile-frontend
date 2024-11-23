@@ -1,28 +1,28 @@
 import { useAuth0 } from "@auth0/auth0-react";
+import http from "../http-common";
 
 function PostButton({ addPost }) {
     const user = useAuth0();
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
 
         const newPost = {
-            id: Math.random(),
             user: user.user.name,
             title: document.getElementById('title').value,
             content: document.getElementById('content').value,
             likes: 0
         };
 
-        if (/^\s*$/.test(document.getElementById('content').value)) {
-            alert("Post cannot be empty");
-            return;
-        } else {
-            alert('Post created!');
-            console.log("Post: " + document.getElementById('content').value);
-            console.log("User: " + user.user.name);
+        try {
+            await http.post('/posts', newPost);
             addPost(newPost);
-        };
+            alert('Post created!');
+            console.log('Post:', newPost.content);
+            console.log('User:', newPost.user);
+          } catch (error) {
+            console.error('Error creating post:', error);
+          }
 
         document.getElementById('title').value = '';
         document.getElementById('content').value = '';

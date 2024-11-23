@@ -59,7 +59,10 @@ export default function Profile() {
                 <Link to="/">Home</Link>
             </div>
         ) : (
-            <p>You are not logged in</p>
+            <div className="profile">
+                <p>You are not logged in</p>
+                <Link to="/">Go Home</Link>
+            </div>
         )
     )
 }

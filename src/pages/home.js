@@ -7,9 +7,10 @@ import { useAuth0 } from '@auth0/auth0-react';
 import { IoIosHeart } from "react-icons/io";
 import Popup from "reactjs-popup";
 import axios from "axios";
+import { jwtDecode } from "jwt-decode";
 
 export default function Home() {
-    const { isAuthenticated } = useAuth0();
+    const { user, isAuthenticated, getAccessTokenSilently } = useAuth0();
 	const [posts, setPosts] = useState([]);
 
 	useEffect(() => {
@@ -43,6 +44,30 @@ export default function Home() {
 		setPosts(updatedPosts);
 	};
 
+	const SaveUser = async () => {
+		try {
+			const response = await fetch ('http://localhost:8080/api/users', {
+				method: 'POST',
+				headers: {
+					"Content-type": "application/json"
+				},
+				body: JSON.stringify({ 
+					username: user.name, 
+					email: user.email 
+				}),
+			})
+
+			const data = await response.json();
+			if (data.success) {
+				console.log("saved user.", data.user);
+			} else {
+				console.log("failed to save user.", data.message);
+			}
+		} catch (error) {
+			console.error("Error saving user:", error);
+		}
+	};
+
 	return (
     	<div className="App">
     		<header className="App-header">
@@ -54,7 +79,7 @@ export default function Home() {
         		</div>
 			</header>
         	<body className='App-body'>
-				{isAuthenticated ? <PostButton addPost={addPost} /> : <p>Log in to see and create posts!</p>}
+				{isAuthenticated ? <PostButton addPost={addPost} /> : <p>Log in to see and create posts!</p>}				
 			</body>
 			<div className="posts">
 				{posts.map(post => (
@@ -75,4 +100,4 @@ export default function Home() {
 			</div>
 	</div>
   );
-}
+};

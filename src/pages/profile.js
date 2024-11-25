@@ -29,16 +29,10 @@ export default function Profile() {
 			content: "Occaecat cillum pariatur esse nisi irure dolor do voluptate do tempor. Laborum deserunt elit tempor dolor sunt. Sunt proident labore mollit labore sint id eu labore officia cillum deserunt aute ea.",
 			likes: 2147483647,
 			liked: false
-		},
-        {
-            id: 4,
-            user: "wickedChara",
-            title: "seiubfiouri",
-            content: "hehehehehehehehehe :3",
-            likes: 0,
-            liked: false
-        }
+		}
 	]);
+
+    const userPosts = posts.filter(post => post.user === user.name);
 
     const { user, isAuthenticated } = useAuth0();
 
@@ -49,13 +43,17 @@ export default function Profile() {
                 <h2>{user.name}</h2>
 
                 <h3>Posts</h3>
-                {posts.map(post => (
-                    (post.user === user.name) && <div key={post.id} className="post post-style">
-                        <h4>{post.title}</h4>
-                        <p>{post.content}</p>
-                        <p>{post.likes} likes</p>
-                    </div>
-                ))}
+                {userPosts.length === 0 ? (
+                    <p>No posts yet!</p>
+                ) : (
+                    userPosts.map(post => (
+                        <div key={post.id} className="post post-style">
+                            <h4>{post.title}</h4>
+                            <p>{post.content}</p>
+                            <p>{post.likes} likes</p>
+                        </div>
+                    ))
+                )}
                 <Link to="/">Home</Link>
             </div>
         ) : (

@@ -15,7 +15,15 @@ const redirectUri = window.location.origin
 
 root.render(
   <BrowserRouter>
-    <Auth0Provider domain={domain} clientId={clientId} authorizationParams={{ redirect_uri: redirectUri, }}>
+    <Auth0Provider 
+    domain={domain} 
+    clientId={clientId} 
+    authorizationParams={{ 
+      redirect_uri: redirectUri, 
+      audience: "https://www.ucuddit.com",
+      scope: "openid profile email read:posts write:posts",
+    }}
+    >
       <App />
     </Auth0Provider>
   </BrowserRouter>
